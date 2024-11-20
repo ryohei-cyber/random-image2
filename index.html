@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>化粧水パッケージ</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+        }
+        img {
+            max-width: 90%;
+            height: auto;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>化粧水パッケージが表示されます</h1>
+    <p>以下パッケージを確認したうえで、アンケートにご回答ください。</p>
+    <img id="randomImage" src="" alt="ランダム画像">
+    <script>
+        // Imgurの直接画像リンクリスト
+        const images = [
+            'https://i.imgur.com/Go2g8x5.jpg', // 促進焦点レベル3
+            'https://i.imgur.com/bK12dc7.jpg', // 促進焦点レベル6
+            'https://i.imgur.com/cx3n3hC.jpg', // 予防焦点レベル3
+            'https://i.imgur.com/MdjkFdg.jpg' // 予防焦点レベル6
+        ];
+
+        // ランダムに画像を選択
+        const randomIndex = Math.floor(Math.random() * images.length);
+        const randomImage = images[randomIndex];
+
+        // HTMLに画像を表示
+        document.getElementById("randomImage").src = randomImage;
+    </script>
+</body>
+</html>
