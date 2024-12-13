@@ -26,18 +26,17 @@
     <p>以下パッケージを確認したうえで、アンケートにご回答ください。</p>
     <img id="randomImage" src="" alt="ランダム画像">
     <script>
-        // Imgurの直接画像リンクリスト
+        // 画像リスト
         const images = [
-           'https://i.imgur.com/lSEGHMC.jpg' //促進焦点レベルc 
+            'https://i.imgur.com/lSEGHMC.jpg' // 促進焦点レベルc
         ];
-        
 
-        // ランダムに画像を選択
-        const randomIndex = Math.floor(Math.random() * images.length);
-        const randomImage = images[randomIndex];
+        // 最初の画像（複数画像対応を考慮しておく）
+        const randomImage = images[0];
 
-        // HTMLに画像を表示
-        document.getElementById("randomImage").src = randomImage;
+        // キャッシュを防止するためのクエリパラメータを追加
+        const timestamp = new Date().getTime();
+        document.getElementById("randomImage").src = `${randomImage}?t=${timestamp}`;
     </script>
 </body>
 </html>
