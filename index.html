@@ -24,23 +24,31 @@
 <body>
     <h1>化粧水パッケージが表示されます</h1>
     <p>以下パッケージを確認したうえで、アンケートにご回答ください。</p>
-    <img id="randomImage" src="" alt="ランダム画像">
+    <img id="randomImage" src="" alt="ランダム画像" onerror="handleImageError()">
     <script>
         // 画像リスト
         const images = [
-            'https://i.imgur.com/8MSLtgv.jpg', // 予防焦点レベルc
-            'https://i.imgur.com/pgVBTfx.jpg'  // 促進焦点レベルf
+            { src: 'https://i.imgur.com/8MSLtgv.jpg', alt: '予防焦点レベルc' },
+            { src: 'https://i.imgur.com/pgVBTfx.jpg', alt: '促進焦点レベルf' }
         ];
 
         // ランダムに画像を選択
         const randomIndex = Math.floor(Math.random() * images.length);
-        const randomImage = images[randomIndex];
+        const selectedImage = images[randomIndex];
 
         // キャッシュを防止するためのクエリパラメータを追加
         const timestamp = new Date().getTime();
 
         // 画像を表示
-        document.getElementById("randomImage").src = `${randomImage}?t=${timestamp}`;
+        const imgElement = document.getElementById("randomImage");
+        imgElement.src = `${selectedImage.src}?t=${timestamp}`;
+        imgElement.alt = selectedImage.alt;
+
+        // エラーハンドリング関数
+        function handleImageError() {
+            imgElement.src = 'https://via.placeholder.com/600x400?text=画像の読み込みに失敗しました';
+            imgElement.alt = '画像の読み込みに失敗しました';
+        }
     </script>
 </body>
 </html>
