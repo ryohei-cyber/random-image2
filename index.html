@@ -28,15 +28,18 @@
     <script>
         // 画像リスト
         const images = [
-            'https://i.imgur.com/lSEGHMC.jpg',// 促進焦点レベルc
-            'https://i.imgur.com/pgVBTfx.jpg' //促進焦点レベルf
+            'https://i.imgur.com/lSEGHMC.jpg', // 促進焦点レベルc
+            'https://i.imgur.com/pgVBTfx.jpg'  // 促進焦点レベルf
         ];
 
-        // 最初の画像（複数画像対応を考慮しておく）
-        const randomImage = images[0];
+        // ランダムに画像を選択
+        const randomIndex = Math.floor(Math.random() * images.length);
+        const randomImage = images[randomIndex];
 
         // キャッシュを防止するためのクエリパラメータを追加
         const timestamp = new Date().getTime();
+
+        // 画像を表示
         document.getElementById("randomImage").src = `${randomImage}?t=${timestamp}`;
     </script>
 </body>
